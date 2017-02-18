@@ -9,10 +9,15 @@ import org.springframework.context.annotation.Scope;
 @SpringBootApplication
 public class App {
     @Bean
-//    @Scope(scopeName = "prototype")
+    @Scope(scopeName = "prototype")
     public PrototypeBean getPrototypeBean() {
         return new PrototypeBean();
     }
+  
+//    @Bean
+//    public LookupTest getLookupTest() {
+//        return new LookupTest();
+//    }
     
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
@@ -22,5 +27,11 @@ public class App {
         
         System.out.println(b1.getName());
         System.out.println(b2.getName());
+        
+        App app = new App();
+        
+        LookupTest t = context.getBean(LookupTest.class);
+        t.consume();
+        t.consume();
     }
 }
