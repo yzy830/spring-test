@@ -1,11 +1,8 @@
-package com.gerald.spring;
+package com.gerald.spring.ioc.initorder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import com.gerald.spring.ioc.initorder.Base;
-import com.gerald.spring.ioc.initorder.BaseDependent;
 
 @SpringBootApplication
 public class App {
@@ -14,7 +11,6 @@ public class App {
         
         context.getBeanFactory().registerSingleton(BaseDependent.class.getName(), new BaseDependent());
         
-//        Base b = context.getBean(Base.class);
-//        System.out.println(b.getName());
+        
     }
 }

@@ -3,6 +3,7 @@ package com.gerald.spring.ioc.initorder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class Config {
