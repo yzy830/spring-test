@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring-data-releasetrain.version>Ingalls-RELEASE</spring-data-releasetrain.version>
   </properties>
   
   <parent>
@@ -30,6 +31,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
+    
+<!--     <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-jpamodelgen</artifactId>
+	</dependency> -->
   </dependencies>
   
   <build>

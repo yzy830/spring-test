@@ -1,7 +1,8 @@
-package com.gerald.spring.ioc.extention;
+package com.gerald.spring.ioc.required;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +31,7 @@ public class Requiring {
     }
 
     @org.springframework.beans.factory.annotation.Required
-    @Resource
+    @Autowired(required = false)
     public void setDependency(RequiredDependency dependency) {
         this.dependency = dependency;
     }
