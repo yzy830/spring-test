@@ -8,5 +8,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class App {    
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
+        context.close();
     }
 }
