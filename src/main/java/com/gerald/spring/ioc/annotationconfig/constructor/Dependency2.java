@@ -1,4 +1,4 @@
-package com.gerald.spring.ioc.annotationconfig;
+package com.gerald.spring.ioc.annotationconfig.constructor;
 
 import org.springframework.stereotype.Component;
 
