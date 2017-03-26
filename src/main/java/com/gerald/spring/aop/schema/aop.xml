@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+
+<bean id="aop" class="com.gerald.spring.aop.schema.Aop"></bean>
+
+<bean id="target" class="com.gerald.spring.aop.schema.Target" ></bean>
+
+<aop:config>
+    <!-- pointcut既可以定义在aop:config中，也可以定义在aop:aspect中 -->
+    <aop:pointcut expression="within(com.gerald..schema.*) and execution(* com..Target.*(..)) and target(target)" id="package"/>
+
+    <aop:aspect ref="aop">
+        <!-- 这个测试案例表示，schema配置中，不能像@AspectJ配置一样，组合pointcut -->
+        <!-- <aop:pointcut expression="within(com.gerald..schema.*)" id="package1"/> -->
+        
+        <!-- <aop:pointcut expression="within(com.gerald..schema.*) and execution(* com..Target.*(..)) and target(target)" id="package"/> -->
+        
+        <!-- advice必须定义在aop:aspect中，因为advice自身不关联到bean，需要通过aop:aspect关联 -->
+        <aop:before method="before" pointcut-ref="package"/>
+    </aop:aspect>
+    
+    <aop:aspect></aop:aspect>
+</aop:config>
+
+</beans>

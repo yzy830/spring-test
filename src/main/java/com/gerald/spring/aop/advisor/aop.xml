@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+
+<!-- 这里定义了一个advisor bean -->
+<bean id="aop" class="com.gerald.spring.aop.advisor.AroundInterceptor"></bean>
+
+<bean id="target" class="com.gerald.spring.aop.advisor.Target" ></bean>
+
+<aop:config>
+    <aop:pointcut expression="within(com.gerald..advisor.*) and execution(* com..Target.*(..))" id="package"/>
+
+    <!-- 由于advisor bean只有一个方法，直接用于处理join point，因此advisor的配置相对于aspect更加简单，只需要引用advisor bean就可以了 -->
+    <aop:advisor advice-ref="aop" pointcut-ref="package"/>
+</aop:config>
+
+</beans>

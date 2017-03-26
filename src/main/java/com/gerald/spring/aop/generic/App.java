@@ -6,7 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
- * 演示advice的优先级问题。由于在同一个Aspect中，多个advice的优先级是不确定的，这里只演示在不同Aspect中advice的优先级问题
+ * 这个APP演示了泛型捕获问题，具体可以参考{@code Aop}的注释
  *
  */
 @SpringBootApplication
